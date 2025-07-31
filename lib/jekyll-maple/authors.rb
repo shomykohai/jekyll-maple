@@ -1,5 +1,3 @@
-# _plugins/generate_authors.rb
-
 module Jekyll
   class AuthorPage < Page
     def initialize(site, base, dir, author)

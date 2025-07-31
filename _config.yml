@@ -7,7 +7,7 @@ plugins:
   - jekyll-paginate-v2
   - jekyll/tagging
   - jekyll-feed
-
+  - jekyll-maple
 
 pagination:
   enabled: true
