@@ -1,0 +1,19 @@
+{% assign tags_counts = "" | split: "" %}
+
+{% for tag_pair in site.tags %}
+{% assign tag = tag_pair[0] %}
+{% assign count = tag_pair[1] | size %}
+{% capture tag_info %}{{ count | prepend: "000000" }}:::{{ tag }}{% endcapture %}
+{% assign tags_counts = tags_counts | push: tag_info %}
+{% endfor %}
+
+{% assign sorted_tags = tags_counts | sort | reverse %}
+
+{% for tag_info in sorted_tags %}
+{% assign parts = tag_info | split: ":::" %}
+{% assign count = parts[0] | plus: 0 %}
+{% assign tag = parts[1] %}
+<a href="/tag/{{ tag | slugify }}" class="tag">
+    {{ tag }} ({{ count }})
+</a>
+{% endfor %}

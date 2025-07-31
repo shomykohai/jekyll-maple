@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+{% assign author = page.author %}
+{% if author %}
+<div class="author-card">
+
+
+    {% include author-card.html %}
+
+    {% if author.long-description %}
+    <p>{{ author.long-description }}</p>
+    {% endif %}
+
+    <h2>Posts by {{ author.name }}</h2>
+    <ul>
+        {% for post in site.posts %}
+        {% assign pa = post.author | downcase %}
+        {% assign ai = author.id | downcase %}
+        {% if pa == ai %}
+        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

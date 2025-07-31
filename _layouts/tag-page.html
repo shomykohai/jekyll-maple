@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<h2 class="post-title">Articles tagged with: <b class="tag-name">{{ page.tag }}</b></h2>
+<div class="card-grid">
+    {% for post in site.posts %}
+    {% if post.tags contains page.tag %}
+    <div class="card article-card">
+
+        <a href="{{ post.url | relative_url }}">
+            <img class="card-image" src="{{ post.image | default: '/assets/defaults/post_image.png' | relative_url }}"
+                alt="Post image for {{ post.title }}">
+        </a>
+
+        <div class="card-content">
+            <h3>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h3>
+        </div>
+
+        <div class="card-meta">
+            <p>
+                {{ post.date | date: "%b %d, %Y" }}
+                {% if post.author %}
+                • {{ post.author | join: ", " }}
+                {% endif %}
+            </p>
+            <div class="tag-toggle-container">
+                <input type="checkbox" id="toggle-{{ forloop.index }}" class="tag-checkbox">
+                <label for="toggle-{{ forloop.index }}" class="tag-toggle-label" title="Show tags">Show tags</label>
+                <div class="tag-popup">
+                    {% for tag in post.tags %}
+                    <a class="tag" href="{{ tag | tag_url }}">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<h2>All tags</h2>
+{% include tags.html %}

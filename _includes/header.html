@@ -1,0 +1,25 @@
+<header class="site-header">
+    <div class="site-header-inner">
+        <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        <p class="site-tagline">{{ site.description }}</p>
+        {% include social-link.html %}
+    </div>
+    {% include theme-toggle.html %}
+    {% if site.maple.music_player.enable %}
+    {% include music_player.html %}
+    {% endif %}
+    <nav class="site-nav">
+        <ul>
+            {% for route in site.maple.routes %}
+            <li>
+                <a href="{{ route.url }}">
+                    {% if route.icon %}
+                    <i class="fa-solid fa-{{ route.icon }}"></i>
+                    {% endif %}
+                    {{ route.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

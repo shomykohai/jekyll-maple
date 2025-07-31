@@ -1,0 +1,53 @@
+{% for _author in site.maple.authors %}
+{% if _author.id | downcase == page.author | downcase %}
+{% assign author = _author %}
+{% break %}
+{% endif %}
+{% endfor %}
+{% if author %}
+
+<div class="author-card">
+    {% assign avatar_image = nil %}
+
+    {% if author.image.provider == "github" and author.image.username %}
+    {% capture avatar_image %}
+    https://github.com/{{ author.image.username }}.png
+    {% endcapture %}
+    {% elsif author.image.provider == "local" and author.image.path %}
+    {% capture avatar_image %}
+    {{ author.image.path }}
+    {% endcapture %}
+    {% endif %}
+
+    {% if avatar_image %}
+    <img src="{{ avatar_image | strip }}" class="author-avatar" alt="{{ author.name }} avatar" />
+    {% endif %}
+
+    <h3 class="author-name">
+
+        {% if site.maple.enable_authors_page %}
+        <a href="{{ '/author/' | append: author.id | relative_url }}">{{ author.name }}</a>
+        {% else %}
+        {{ author.name }}
+        {% endif %}
+    </h3>
+
+    {% if author.description %}
+    <p class="author-description">{{ author.description }}</p>
+    {% endif %}
+
+    {% if author.social_links %}
+    <div class="social-links">
+        {% for link in author.social_links %}
+        {% if link.fa == true %}
+        <a class="color-{{ link.color }}-hover" href="{{ link.url }}" {% if link.rel %} rel="{{ link.rel }}" {% endif
+            %}><i class="fa fa-{{ link.icon }}"></i></a>
+        {% else %}
+        <a class="color-{{ link.color }}-hover" href="{{ link.url }}" {% if link.rel %} rel="{{ link.rel }}" {% endif
+            %}><i class="fa-brands fa-{{ link.icon }}"></i></a>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endif %}

@@ -1,0 +1,104 @@
+title: Jekyll Maple
+description: A cozy and dreamy Jekyll theme inspired by autumn 🍄.
+baseurl: ""
+url: "" # Set your site's URL here!!
+theme: jekyll-maple
+plugins:
+  - jekyll-paginate-v2
+  - jekyll/tagging
+  - jekyll-feed
+
+
+pagination:
+  enabled: true
+  debug: true
+  collection: 'posts'
+  per_page: 6
+  permalink: 'page/:num/'
+  title: ':title - page'
+  sort_field: 'date'
+  sort_reverse: true
+
+
+# Make tags have a nice permalink (/tag/tag-name)
+tag_permalink_style: pretty
+# Layout for tag pages
+tag_page_layout: tag-page
+# In which directory to put tag pages
+tag_page_dir: tag
+
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      # Nice permalink for posts
+      permalink: "/blog/article/:title"
+
+# Compress CSS for smaller file size
+sass:
+  style: compressed
+
+
+# Theme specific settings
+maple:
+  date_format: "%b %-d, %Y"
+  footer: "Built with Jekyll &amp Maple Leaves by <a href=\"https://github.com/shomykohai\">Shomy</a> — inspired by autumn and coziness."
+  # Maximum number of articles to show in the default home page and articles.html include
+  limit_shown_articles: true
+  shown_articles_limit: 5
+  social_links:
+    - url: https://github.com/shomykohai
+      icon: github
+      color: purple
+    
+  routes:
+    - url: /
+      title: Home
+      icon: home
+  
+  # If enabled, the author page will be generated, and you will be able to click on the author's name in the post
+  enable_authors_page: false
+  # Fill this to have the author card on the side bar in posts
+  authors:
+    # Example
+    # - id: shomy
+    #   name: Shomy
+    #   description: "Musician and developer."
+    #   long-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    #   image:
+    #     provider: "github"
+    #     username: "shomykohai"
+      
+    #   social_links:
+    #     - url: https://github.com/shomykohai
+    #       icon: github
+    #       color: purple
+    
+  sitemap:
+    # Whether to generate a sitemap.xml file
+    enable: true
+    # Don't add tags to sitemap (site.url/tag/tag-name)
+    exclude_tags: true
+    included_pages: [
+      blog,
+    ]
+    # These routes won't be added to the sitemap
+    banned_routes:
+      - /404.html
+      - /feed.xml
+      - /sitemap.xml
+    allowed_extensions: [
+      html
+    ]
+    banned_extensions: []
+
+  music_player:
+    # Whether to enable the music player
+    enable: false
+    # The path where to look for music files
+    # This path is relative to the root of the site
+    lookup_path: /assets/music/
+    filename: "music.ogg"

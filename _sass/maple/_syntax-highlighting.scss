@@ -1,0 +1,193 @@
+.highlighter-rouge pre {
+    background: var(--card);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    line-height: 1.5;
+    margin: 1rem 0;
+}
+
+.highlighter-rouge code {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    display: block;
+}
+
+.highlighter-rouge .c,
+.highlighter-rouge .cm,
+.highlighter-rouge .cp,
+.highlighter-rouge .cpf,
+.highlighter-rouge .cs {
+    color: var(--warm-gray);
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+.highlighter-rouge .c {
+    font-style: italic;
+}
+
+.highlighter-rouge .cm {
+    font-style: italic;
+}
+
+.highlighter-rouge .cp {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.highlighter-rouge .cpf {
+    font-style: italic;
+}
+
+.highlighter-rouge .cs {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.highlighter-rouge .k,
+.highlighter-rouge .kc,
+.highlighter-rouge .kd,
+.highlighter-rouge .kp,
+.highlighter-rouge .kr,
+.highlighter-rouge .kn,
+.highlighter-rouge .kt {
+    color: var(--autumn-gold);
+    font-weight: 600;
+}
+
+.highlighter-rouge .nf {
+    color: var(--purple);
+}
+
+.highlighter-rouge .nn,
+.highlighter-rouge .nb {
+    color: var(--highlight);
+}
+
+.highlighter-rouge .nc {
+    color: var(--highlight);
+    font-weight: 600;
+}
+
+.highlighter-rouge .na {
+    color: var(--olive);
+}
+
+.highlighter-rouge .nl {
+    color: var(--olive);
+}
+
+.highlighter-rouge .nv,
+.highlighter-rouge .vb,
+.highlighter-rouge .vc {
+    color: var(--highlight);
+}
+
+.highlighter-rouge .m,
+.highlighter-rouge .mf,
+.highlighter-rouge .mh,
+.highlighter-rouge .mi,
+.highlighter-rouge .mo,
+.highlighter-rouge .il {
+    color: var(--autumn-gold);
+}
+
+.highlighter-rouge .s,
+.highlighter-rouge .sb,
+.highlighter-rouge .sc,
+.highlighter-rouge .sd,
+.highlighter-rouge .s2,
+.highlighter-rouge .se,
+.highlighter-rouge .sh,
+.highlighter-rouge .si,
+.highlighter-rouge .sx,
+.highlighter-rouge .sr,
+.highlighter-rouge .s1,
+.highlighter-rouge .ss {
+    color: var(--rose);
+}
+
+.highlighter-rouge .sd {
+    font-style: italic;
+}
+
+.highlighter-rouge .se {
+    font-weight: 600;
+}
+
+.highlighter-rouge .o {
+    color: var(--highlight);
+    font-weight: bold;
+}
+
+.highlighter-rouge .ow {
+    color: var(--autumn-gold);
+    font-weight: 600;
+}
+
+.highlighter-rouge .p {
+    color: var(--text);
+}
+
+.highlighter-rouge .nt,
+.highlighter-rouge .nd,
+.highlighter-rouge .ni,
+.highlighter-rouge .ne {
+    color: var(--cyan);
+}
+
+.highlighter-rouge .ne {
+    font-weight: 600;
+}
+
+.highlighter-rouge .gd {
+    color: var(--rose);
+}
+
+.highlighter-rouge .gi {
+    color: var(--olive);
+}
+
+.highlighter-rouge .gu {
+    color: var(--text);
+}
+
+.highlighter-rouge .gt {
+    color: var(--text);
+}
+
+.highlighter-rouge .gs {
+    font-weight: bold;
+}
+
+.highlighter-rouge .ge {
+    font-style: italic;
+}
+
+.highlighter-rouge .gh {
+    color: var(--text);
+}
+
+.highlighter-rouge .gp {
+    color: var(--text);
+}
+
+.highlighter-rouge .gu {
+    color: var(--warm-gray);
+}
+
+.highlighter-rouge .err {
+    background-color: #ffdddd;
+    color: #aa0000;
+}
+
+.highlighter-rouge .w {
+    color: #bbb;
+}

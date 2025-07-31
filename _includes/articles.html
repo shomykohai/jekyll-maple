@@ -1,0 +1,50 @@
+<section class="articles-section">
+    <div class="card-grid">
+        {% if site.maple.limit_shown_articles %}
+        {% assign all_posts = site.posts | limit: site.maple.shown_articles_limit %}
+        {% else %}
+        {% assign all_posts = site.posts %}
+        {% endif %}
+
+        {% for post in all_posts %}
+        <div class="card article-card">
+
+            <!-- Section 1: Image -->
+            <div class="card-image-wrapper">
+                <a href="{{ post.url | relative_url }}">
+                    <img class="card-image"
+                        src="{{ post.image | default: '/assets/defaults/post_image.png' | relative_url }}"
+                        alt="Post image for {{ post.title }}">
+                </a>
+            </div>
+
+            <!-- Section 2: Title and Meta Info -->
+            <div class="card-content">
+                <h3>
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h3>
+            </div>
+
+            <!-- Section 3: Tags and Metadata -->
+            <div class="card-meta">
+                <p>
+                    {{ post.date | date: "%b %d, %Y" }}
+                    {% if post.author %}
+                    • {{ post.author | join: ", " }}
+                    {% endif %}
+                </p>
+                <div class="tag-toggle-container">
+                    <input type="checkbox" id="toggle-{{ forloop.index }}" class="tag-checkbox">
+                    <label for="toggle-{{ forloop.index }}" class="tag-toggle-label" title="Show tags">Show tags</label>
+                    <div class="tag-popup">
+                        {% for tag in post.tags %}
+                        <a class="tag" href="{{ tag | tag_url }}">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</section>

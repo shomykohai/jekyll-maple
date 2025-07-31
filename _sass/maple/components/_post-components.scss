@@ -1,0 +1,108 @@
+@use "../fonts" as *;
+
+.post-date {
+    color: var(--warm-gray);
+    font-size: 12px;
+}
+
+// Post container contains .post and .post-sidebar
+.post-container {
+    display: flex;
+    gap: 2rem;
+    padding: 0 1rem;
+    margin: 2rem auto;
+}
+
+
+.post {
+    flex: 1 1 auto;
+
+    // Increase the font size only on posts
+    p {
+        font-size: 1.05rem;
+    }
+}
+
+// Post sidebar, which contains author info and TOC.
+// It scrolls independently of the post content.
+.post-sidebar {
+    position: sticky;
+    flex: 0 0 320px;
+    top: 5rem;
+    margin-top: 5rem;
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+// Ensure responsive design on smaller screens
+@media (max-width: 900px) {
+    .post-container {
+        flex-direction: column;
+    }
+
+    .post-sidebar {
+        width: 100%;
+        max-height: none;
+        overflow: visible;
+    }
+}
+
+.post-sidebar .author-card,
+.post-sidebar .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.post-sidebar .toc ul {
+    list-style: none;
+    padding-left: 20px;
+    margin-left: 0;
+}
+
+.post-sidebar .toc a {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-family: $font-mulish;
+}
+
+.post-sidebar .toc a:hover,
+.post-sidebar .toc a:focus {
+    transform: translateY(-4px);
+    color: var(--accent);
+}
+
+
+.author-card {
+    .author-avatar {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 1rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .author-name {
+        // TODO: Use a variable for the font instead of hardcoding
+        font-family: $font-autumn, serif;
+        font-size: 1.25rem;
+        margin-top: 0.75rem;
+        color: var(--accent);
+        text-align: center;
+    }
+
+    .author-description {
+        font-size: 0.9rem;
+        color: #a08d7c;
+        text-align: center;
+        margin-top: 0.5rem;
+        line-height: 1.4;
+    }
+}

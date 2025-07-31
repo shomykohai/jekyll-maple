@@ -1,0 +1,72 @@
+:root {
+    --bg: #f2e1cc;
+    --bg-blur: rgba(242, 225, 204, 0.7);
+    --text: #3c2f2f;
+    --accent: #d79a86;
+    --card: #f7e6d3;
+    --border: #dcc8b3;
+    --highlight: #a86758;
+
+    --purple: #a17ddc;
+    --lavender: #b5a6e0;
+    --olive: #b3bb8a;
+    --autumn-gold: #e2b16f;
+    --cyan: #9fcfc9;
+    --rose: #da94a8;
+    --warm-gray: #a99b93;
+    --dreamy-yellow: #e9c578;
+}
+
+
+:root.dark {
+    --bg: #1d1a17;
+    --bg-blur: rgba(29, 26, 23, 0.7);
+    --text: #e6dfd7;
+    --accent: #c28a70;
+    --card: #2c2622;
+    --border: #403832;
+    --highlight: #caa18b;
+
+    --purple: #c4b2f5;
+    --lavender: #e1d5f5;
+    --olive: #c9d4a6;
+    --autumn-gold: #f5bd62;
+    --cyan: #b4dbd8;
+    --rose: #ecb1c0;
+    --warm-gray: #d6cfc7;
+    --dreamy-yellow: #e9c67b;
+}
+
+
+
+.color-purple-hover:hover {
+    color: var(--purple) !important;
+}
+
+.color-lavender-hover:hover {
+    color: var(--lavender) !important;
+}
+
+.color-olive-hover:hover {
+    color: var(--olive) !important;
+}
+
+.color-autumn-gold-hover:hover {
+    color: var(--autumn-gold) !important;
+}
+
+.color-cyan-hover:hover {
+    color: var(--cyan) !important;
+}
+
+.color-rose-hover:hover {
+    color: var(--rose) !important;
+}
+
+.color-warm-gray-hover:hover {
+    color: var(--warm-gray) !important;
+}
+
+.color-dreamy-yellow-hover:hover {
+    color: var(--dreamy-yellow) !important;
+}

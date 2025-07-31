@@ -1,0 +1,102 @@
+@use "../fonts" as *;
+
+.tag-toggle-container {
+    position: relative;
+    display: inline-block;
+}
+
+// The checkbox is hidden but still usable for toggling
+// The label acts as the visible toggle button
+.tag-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+
+.tag-toggle-label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    font-family: $font-nunito;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    user-select: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-width: 70px;
+    text-align: center;
+}
+
+
+.tag-toggle-label:hover {
+    background-color: var(--accent);
+    color: var(--card);
+    border: 2px solid var(--accent);
+}
+
+
+.tag-popup {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 10px);
+    // This makes it so the popup doesn't do an animation appearing from the bottom (I don't even know how it appended)
+    transform: translateY(-50%);
+    background: var(--card);
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    min-width: 140px;
+    font-size: 0.9rem;
+    color: var(--text);
+    z-index: 10;
+    user-select: none;
+    white-space: normal;
+}
+
+
+// When the checkbox is checked, show the popup, without needing JS!
+.tag-checkbox:checked+.tag-toggle-label+.tag-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(0);
+}
+
+
+.tag {
+    display: inline-block;
+    background-color: var(--border);
+    color: var(--highlight);
+    padding: 4px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    margin: 0 6px 6px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: $font-nunito;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:before {
+        // TODO: Use a variable for the icon font instead of hardcoding
+        font-family: "Font Awesome 7 Free";
+        content: "\f02b"; // Tag icon
+        margin-right: 0.3em;
+    }
+}
+
+.tag:hover {
+    background-color: var(--highlight);
+    color: var(--card);
+}

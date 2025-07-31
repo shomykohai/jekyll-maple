@@ -1,0 +1,39 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 2rem 0;
+    // TODO: Use variables for fonts for consistency
+    font-family: 'Georgia', serif;
+    font-weight: 600;
+    color: var(--highlight);
+}
+
+.pagination a,
+.pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--highlight);
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: var(--autumn-gold);
+    color: var(--bg);
+}
+
+.pagination span {
+    cursor: default;
+    background-color: var(--highlight);
+    color: var(--bg);
+    border-color: var(--highlight);
+}

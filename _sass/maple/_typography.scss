@@ -1,0 +1,36 @@
+@use "fonts" as *;
+
+h1,
+h2,
+h3 {
+    font-family: $font-academia, serif;
+    color: var(--highlight);
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-family: #{$font-mulish},
+    sans-serif;
+    font-size: 1rem;
+    color: var(--text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--highlight);
+    transition: color 0.3s ease;
+}

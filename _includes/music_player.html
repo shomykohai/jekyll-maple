@@ -1,0 +1,76 @@
+{% if site.maple.music_player %}
+<div id="maple-music-player" class="maple-music-player" aria-label="Toggle music" role="button" tabindex="0"
+    title="Toggle music">
+    🔇
+    <audio id="maple-audio" preload="auto" loop></audio>
+</div>
+
+<style>
+    #maple-music-player {
+        position: fixed;
+        top: 1rem;
+        right: 10rem;
+        width: 30px;
+        height: 30px;
+        background-color: var(--card);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border: 1px solid var(--border);
+    }
+
+    #maple-music-player::hover {
+        background-color: var(--highlight);
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const audio = document.getElementById("maple-audio");
+        const btn = document.getElementById("maple-music-player");
+        const musicUrl = "{{ site.maple.music_player.lookup_path | default: '/assets/music/' }}";
+        const musicFile = "{{ site.maple.music_player.filename | default: 'music.ogg' }}";
+
+        audio.src = musicUrl + musicFile;
+        audio.autoplay = true;
+
+        const isPlaying = localStorage.getItem("maple-music-playing") === "true";
+
+        function updateButton() {
+            if (audio.paused) {
+                btn.classList.remove("playing");
+                btn.textContent = "🔇";
+            } else {
+                btn.classList.add("playing");
+                btn.textContent = "🎶";
+            }
+        }
+
+        if (isPlaying) {
+            audio.play().catch(() => {
+                updateButton();
+            });
+            updateButton();
+        }
+
+        btn.addEventListener("click", () => {
+            if (audio.paused) {
+                audio.play();
+                localStorage.setItem("maple-music-playing", "true");
+            } else {
+                audio.pause();
+                localStorage.setItem("maple-music-playing", "false");
+            }
+            updateButton();
+        });
+
+        audio.addEventListener("play", updateButton);
+        audio.addEventListener("pause", updateButton);
+    });
+
+</script>
+{% endif %}
