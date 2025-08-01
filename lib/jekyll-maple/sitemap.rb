@@ -52,10 +52,7 @@ module Jekyll
       end
   
       xml = build_sitemap_xml(urls)
-
-      File.write(sitemap_path, xml)
-      site.keep_files ||= []
-      site.keep_files << 'sitemap.xml'
+      site.pages << SitemapPage.new(site, xml)
     end
 
     private
@@ -91,6 +88,30 @@ module Jekyll
       formatter.compact = true
       formatter.write(doc, output)
       output
+    end
+  end
+
+  # Trick jekyll into handling this as a normal page, but then assign it a empty layout
+  class SitemapPage < Page
+    def initialize(site, content)
+      @site = site
+      @base = site.source
+      @dir  = '/'
+      @name = 'sitemap.xml'
+
+      self.process(@name)
+      self.content = content
+      self.data = {
+        'layout' => nil,
+        'sitemap' => false
+      }
+    end
+
+    def read_yaml(*)
+    end
+
+    def render_with_liquid?
+      false
     end
   end
 end
