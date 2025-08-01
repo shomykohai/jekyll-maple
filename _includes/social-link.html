@@ -1,9 +1,9 @@
 {% if site.maple.social_links %}
 <div class="social-links">
     {% for link in site.maple.social_links %}
-    {% if link.fa == true %}
+    {% if link.fa-class and link.fa-class != "brands" %}
     <a class="color-{{ link.color }}-hover" href="{{ link.url }}" {% if link.rel %} rel="{{ link.rel }}" {% endif %}><i
-            class="fa fa-{{ link.icon }}"></i></a>
+            class="fa-{{ link.fa-class }} fa-{{ link.icon }}"></i></a>
     {% else %}
     <a class="color-{{ link.color }}-hover" href="{{ link.url }}" {% if link.rel %} rel="{{ link.rel }}" {% endif %}><i
             class="fa-brands fa-{{ link.icon }}"></i></a>
