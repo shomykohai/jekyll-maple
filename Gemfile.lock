@@ -4,7 +4,7 @@ PATH
     jekyll-maple (1.0.0)
       jekyll
       jekyll-feed
-      jekyll-paginate
+      jekyll-paginate-v2
       jekyll-seo-tag
 
 GEM
@@ -84,7 +84,6 @@ GEM
       webrick (~> 1.7)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
-    jekyll-paginate (1.1.0)
     jekyll-paginate-v2 (3.0.0)
       jekyll (>= 3.0, < 5.0)
     jekyll-sass-converter (3.1.0)
